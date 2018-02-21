@@ -79,3 +79,15 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+if ('serviceWorker' in navigator) {
+    console.log("Disponivel")
+    navigator.serviceWorker
+        .register('./service-worker.js')
+        .then(function(reg) {
+            console.log('ServiceWorker Registered');
+        })
+        .catch(function(err) {
+            console.log('Error: ' +  err);
+        });
+}
